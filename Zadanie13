@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class ZadanieNewsletter {
+
+public static void main(String[] args) {
+	
+	
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Podaj liczbę, w której chcesz przestawić cyfry");
+		long i = sc.nextLong();
+		System.out.println("Przed: " + i);
+		System.out.print("Po:    ");
+		
+		
+		int x = 0;
+		while(!((long)(Math.pow(10, x))>i)) { // ta pętla sprawdza czy "i" jest większa od 1, 10, 100, 1000 itd.
+				int counter = 0;
+				while(!(i%(long)Math.pow(10, 1+x)==0)) { // ta pętla sprawdza jaka cyfra występuje na miejscu kolejno: jedności, dziesiątek, setek itd... wliczbie "i"
+					i = (i - (long)Math.pow(10, x)); // odejmuje od "i" liczbę 10^0, aż "wyzeruje" jedności, potem odejmuje 10^1, aż wyzeruje dziesiątki itd...
+					counter++;
+				}
+				x++;
+				System.out.print(counter); // wyświetla w jednej linii liczbę jedności, dziesiątek, setek, tysięcy itd. występujących w liczbie "i", tym samym obracając liczbę
+			}
+		sc.close();
+}
+}
